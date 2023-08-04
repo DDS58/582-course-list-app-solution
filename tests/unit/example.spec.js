@@ -44,4 +44,10 @@ describe("CourseItem.vue", () => {
     await wrapper.find("button").trigger("click");
     expect(wrapper.emitted().addCourse).toBeTruthy();
   });
+
+  it("shows the button Remove Course when isAdded is true", async () => {
+    const wrapper = shallowMount(CourseItem);
+    await wrapper.setData({ isAdded: true });
+    expect(wrapper.find("button").text()).toBe("Remove Course");
+  });
 });
