@@ -16,11 +16,17 @@ describe("CourseItem.vue", () => {
     const wrapper = shallowMount(CourseItem);
     expect(wrapper.find("button").text()).toBe("Add Course");
   });
-});
 
-it("hides the button when isAdded is false", async () => {
-  const buttonText = "Remove Course";
-  const wrapper = shallowMount(CourseItem);
-  await wrapper.setData({ isAdded: true });
-  expect(wrapper.find("button").text()).toBe(buttonText);
+  it("hides the button when isAdded is false", async () => {
+    const buttonText = "Remove Course";
+    const wrapper = shallowMount(CourseItem);
+    await wrapper.setData({ isAdded: true });
+    expect(wrapper.find("button").text()).toBe(buttonText);
+  });
+
+  it("emits an event when the button is clicked", async () => {
+    const wrapper = shallowMount(CourseItem);
+    await wrapper.find("button").trigger("click");
+    expect(wrapper.emitted().addCourse).toBeTruthy();
+  });
 });
