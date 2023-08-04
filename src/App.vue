@@ -1,6 +1,9 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
+  <p>outside {{ inputText }}</p>
+  <input type="text" v-model="inputText" />
+  <VmodelTest v-model="inputText"></VmodelTest>
   <h1>Course List App</h1>
 
   <h2>Selected Courses: {{ coursesSelected }}</h2>
@@ -20,11 +23,13 @@
 // import HelloWorld from "./components/HelloWorld.vue";
 // import CourseItem from "./components/CourseItem.vue";
 import CourseList from "./components/CourseList.vue";
+import VmodelTest from "./components/VmodelTest.vue";
 
 export default {
   name: "App",
   data() {
     return {
+      inputText: "asdasd",
       coursesSelected: 0,
       coursesSelectedList: [],
       courses: [
@@ -108,6 +113,7 @@ export default {
     // HelloWorld,
     // CourseItem,
     CourseList,
+    VmodelTest,
   },
   methods: {
     addCourse(id) {
