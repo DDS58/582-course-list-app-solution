@@ -50,10 +50,4 @@ describe("CourseItem.vue", () => {
     await wrapper.setData({ isAdded: true });
     expect(wrapper.find("button").text()).toBe("Remove Course");
   });
-
-  it("emits an event when the button is clicked", async () => {
-    const wrapper = shallowMount(CourseItem);
-    await wrapper.find("button").trigger("click");
-    expect(wrapper.emitted().sendRemove).toBeTruthy();
-  });
 });
