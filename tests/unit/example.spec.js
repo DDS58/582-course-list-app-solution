@@ -29,4 +29,9 @@ describe("CourseItem.vue", () => {
     await wrapper.find("button").trigger("click");
     expect(wrapper.emitted().addCourse).toBeTruthy();
   });
+
+  it("shows default props name", () => {
+    const wrapper = shallowMount(CourseItem);
+    expect(wrapper.find("h2").text()).toBe("Course Name");
+  });
 });
