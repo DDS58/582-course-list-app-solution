@@ -27,6 +27,23 @@ describe("CourseItem.vue", () => {
     expect(wrapper.find("li").text()).toBe("credits : 0");
   });
 
+  it("renders props name when passed", () => {
+    const course = {
+      name: "Vue.js",
+      description: "The Progressive JavaScript Framework",
+      hours: 50,
+      credits: 3,
+      location: "Online",
+      instructor: "John Doe",
+      id: 1,
+      enrollment: 10,
+    };
+    const wrapper = shallowMount(CourseItem, {
+      props: { course },
+    });
+    expect(wrapper.find("h2").text()).toBe("Vue.js");
+  });
+
   it("shows the button when isAdded is false", () => {
     const wrapper = shallowMount(CourseItem);
     expect(wrapper.find("button").text()).toBe("Add Course");
