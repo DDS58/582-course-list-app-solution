@@ -5,7 +5,7 @@
     <ul>
       <li>credits : {{ course.credits }}</li>
       <li>hours: {{ course.hours }}</li>
-      <li>location: {{ course.location }}</li>
+      <li data-location="location">location: {{ course.location }}</li>
       <li>
         enrollment: {{ course.enrollment }}
         <span class="status">{{ enrollmentStatus }}</span>
