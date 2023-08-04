@@ -12,7 +12,22 @@ describe("HelloWorld.vue", () => {
   });
 });
 describe("CourseItem.vue", () => {
-  it("shows the button when isAdded is true", () => {
+  it("shows default props name", () => {
+    const wrapper = shallowMount(CourseItem);
+    expect(wrapper.find("h2").text()).toBe("Course Name");
+  });
+  it("shows default props description", () => {
+    const wrapper = shallowMount(CourseItem);
+    expect(wrapper.find("p").text()).toBe(
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis accusantium modi adipisci rem architecto sequi atque mollitia voluptates magnam assumenda at reiciendis aliquid, iusto ab debitis quibusdam molestiae quas commodi?"
+    );
+  });
+  it("shows default props credits", () => {
+    const wrapper = shallowMount(CourseItem);
+    expect(wrapper.find("li").text()).toBe("credits : 0");
+  });
+
+  it("shows the button when isAdded is false", () => {
     const wrapper = shallowMount(CourseItem);
     expect(wrapper.find("button").text()).toBe("Add Course");
   });
@@ -28,10 +43,5 @@ describe("CourseItem.vue", () => {
     const wrapper = shallowMount(CourseItem);
     await wrapper.find("button").trigger("click");
     expect(wrapper.emitted().addCourse).toBeTruthy();
-  });
-
-  it("shows default props name", () => {
-    const wrapper = shallowMount(CourseItem);
-    expect(wrapper.find("h2").text()).toBe("Course Name");
   });
 });
