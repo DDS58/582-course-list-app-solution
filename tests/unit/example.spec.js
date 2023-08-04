@@ -26,6 +26,12 @@ describe("CourseItem.vue", () => {
     const wrapper = shallowMount(CourseItem);
     expect(wrapper.find("li").text()).toBe("credits : 0");
   });
+  it("shows default props location", () => {
+    const wrapper = shallowMount(CourseItem);
+    expect(wrapper.find("[data-location='location']").text()).toBe(
+      "location: online"
+    );
+  });
 
   it("renders props name when passed", () => {
     const course = {
