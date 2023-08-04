@@ -29,7 +29,7 @@ export default {
   name: "App",
   data() {
     return {
-      inputText: "asdasd",
+      inputText: "",
       coursesSelected: 0,
       coursesSelectedList: [],
       courses: [
