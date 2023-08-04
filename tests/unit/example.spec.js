@@ -32,7 +32,7 @@ describe("CourseItem.vue", () => {
     expect(wrapper.find("button").text()).toBe("Add Course");
   });
 
-  it("hides the button when isAdded is false", async () => {
+  it("hides the button when isAdded is true", async () => {
     const buttonText = "Remove Course";
     const wrapper = shallowMount(CourseItem);
     await wrapper.setData({ isAdded: true });
